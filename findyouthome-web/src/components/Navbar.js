@@ -1,42 +1,83 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import '../styles/NavBar.css';
 
 const Navbar = () => {
-  const linkStyle = {
-    color: 'blue',
-    textDecoration: 'none',
-    padding: '8px',
-  };
-
-   const navigate = useNavigate();
-
-  const handleSignIn = () => {
-    navigate('/login');
-  };
-
+  const navigate = useNavigate();
 
   return (
-    <nav style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px' }}>
-      <ul style={{ display: 'flex', listStyle: 'none', gap: '1rem', margin: 0, padding: 0 }}>
-        <li>
-          <Link to="/" style={linkStyle}>Home</Link>
+    <nav style={styles.navbar}>
+      {/* Logo */}
+      <div style={styles.logo}>
+        <Link to="/" style={styles.logoText}>
+          Real Estate
+        </Link>
+      </div>
+
+      {/* Navigation Links */}
+      <ul style={styles.navLinks}>
+        <li style={styles.navItem}>
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
         </li>
-        <li>
-          <Link to="/about" style={linkStyle}>About</Link>
+        <li style={styles.navItem}>
+          <Link to="/about" className="nav-link">
+            About Us
+          </Link>
         </li>
-        <li>
-          <Link to="/services" style={linkStyle}>Services</Link>
+        <li style={styles.navItem}>
+          <Link to="/services" className="nav-link">
+            Services
+          </Link>
         </li>
-        <li>
-          <Link to="/favorites" style={linkStyle}>Favorite</Link>
+        <li style={styles.navItem}>
+          <Link to="/favorites" className="nav-link">
+            Favorites
+          </Link>
+        </li>
+        <li style={styles.navItem}>
+          <Link to="/contact" className="nav-link">
+            Contact Us
+          </Link>
         </li>
       </ul>
-      
-      <button onClick={handleSignIn} style={{ padding: '8px 16px', backgroundColor: 'blue', color: 'white', border: 'none', borderRadius: '4px', cursor: 'pointer' }}>
+
+      {/* Sign In Button */}
+      <button className="sign-in-button" onClick={() => navigate('/login')}>
         Sign In
       </button>
     </nav>
   );
+};
+
+const styles = {
+  navbar: {
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    padding: '15px 30px',
+    backgroundColor: '#ffffff',
+    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
+  },
+  logo: {
+    fontSize: '20px',
+    fontWeight: 'bold',
+  },
+  logoText: {
+    color: '#333',
+    textDecoration: 'none',
+  },
+  navLinks: {
+    display: 'flex',
+    listStyle: 'none',
+    gap: '40px',
+    margin: 0,
+    padding: 0,
+  },
+  navItem: {
+    position: 'relative',
+  },
 };
 
 export default Navbar;
