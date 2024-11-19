@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [name, setName] = useState('');
@@ -7,14 +7,16 @@ const Register = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
+  const navigate = useNavigate();
+
   const handleRegister = (event) => {
     event.preventDefault();
-    // Add registration functionality here
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
     }
-    console.log('Registering with:', { name, email, password });
+    
+    navigate("/", { state: { user: { email: email, password: password } } });
   };
 
   return (

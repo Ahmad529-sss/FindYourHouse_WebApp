@@ -96,6 +96,7 @@ const styles = {
   heroTitle: {
     fontSize: '36px',
     fontWeight: 'bold',
+    color:'white',
   },
   middleSection: {
     display: 'flex',

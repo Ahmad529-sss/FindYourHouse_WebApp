@@ -1,8 +1,12 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import '../styles/NavBar.css';
 
 const Navbar = () => {
+
+  const location = useLocation();
+  const user = location.state?.user;
+
   const navigate = useNavigate();
 
   return (
@@ -27,11 +31,6 @@ const Navbar = () => {
           </Link>
         </li>
         <li style={styles.navItem}>
-          <Link to="/services" className="nav-link">
-            Services
-          </Link>
-        </li>
-        <li style={styles.navItem}>
           <Link to="/favorites" className="nav-link">
             Favorites
           </Link>
@@ -44,9 +43,21 @@ const Navbar = () => {
       </ul>
 
       {/* Sign In Button */}
-      <button className="sign-in-button" onClick={() => navigate('/login')}>
-        Sign In
-      </button>
+      <div style={styles.userSection}>
+        {user ? (
+          <div style={styles.userInfo} onClick={() => navigate("/profile", { state: { user: user } })}>
+            <span style={styles.userIcon}>👤</span>
+            <span style={styles.userName}>{user.email.split("@")[0]}</span>
+          </div>
+        ) : (
+          <button
+            style={styles.signInButton}
+            onClick={() => navigate("/login")}
+          >
+            Sign In
+          </button>
+        )}
+      </div>
     </nav>
   );
 };
@@ -77,6 +88,29 @@ const styles = {
   },
   navItem: {
     position: 'relative',
+  },
+  userInfo: {
+    display: "flex",
+    alignItems: "center",
+    cursor: 'pointer'
+  },
+  userIcon: {
+    marginRight: "10px",
+    fontSize: "18px",
+  },
+  userName: {
+    fontSize: "16px",
+    fontWeight: "bold",
+    color: "#333",
+  },
+  signInButton: {
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    padding: "10px 20px",
+    cursor: "pointer",
+    fontWeight: "bold",
   },
 };
 

@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
+  const navigate = useNavigate();
+
   const handleLogin = (event) => {
     event.preventDefault();
-    // Add login functionality here
-    console.log('Logging in with:', { email, password, rememberMe });
+ 
+      navigate("/", { state: { user: { email: email, password: password } } });
+    
   };
 
   return (

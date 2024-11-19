@@ -37,7 +37,7 @@ const AboutUs = () => {
           {/* Right Image Section */}
           <div style={styles.imageBlock}>
             <img
-              src={meetingRoom} // Replace with your actual image path
+              src={meetingRoom} 
               alt="Friendly team"
               style={styles.image} />
           </div>
@@ -87,7 +87,7 @@ const AboutUs = () => {
   );
 };
 
-// Team data (update with actual images and details)
+
 const teamMembers = [
   { name: 'John Doe', role: 'CEO', image: ceo},
   { name: 'Jane Smith', role: 'Manager', image: manager },
@@ -100,20 +100,20 @@ const styles = {
     fontFamily: 'Arial, sans-serif',
   },
   heroSection: {
-    backgroundImage: `url(${require('../assets/images/furniture3.jpg')})`, // Path to your background image
+    backgroundImage: `url(${require('../assets/images/furniture3.jpg')})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '300px', // Adjust as needed
+    height: '300px', 
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
     position: 'relative',
-    color: 'white', // Text color
+    color: 'white', 
   },
   
   heroContent: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Optional overlay for better text visibility
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', 
     padding: '20px',
     borderRadius: '10px',
   },
@@ -122,11 +122,13 @@ const styles = {
     fontSize: '36px',
     margin: '0 0 10px',
     fontWeight: 'bold',
+    color:'white'
   },
   
   breadcrumb: {
     fontSize: '14px',
     margin: '0',
+    color:'white'
   },
   welcomeSection: {
     display: 'flex',
@@ -152,19 +154,19 @@ const styles = {
   heading: {
     fontSize: '28px',
     fontWeight: 'bold',
-    color: '#2c3e50', // Friendly dark gray
+    color: '#2c3e50', 
     marginBottom: '15px',
   },
   
   description: {
     fontSize: '16px',
-    color: '#4a4a4a', // Softer gray for friendliness
+    color: '#4a4a4a', 
     lineHeight: '1.8',
     marginBottom: '20px',
   },
   
   button: {
-    backgroundColor: '#007bff', // Blue color for the button
+    backgroundColor: '#007bff',
     color: '#fff',
     padding: '10px 20px',
     border: 'none',
@@ -176,7 +178,7 @@ const styles = {
   },
   
   buttonHover: {
-    backgroundColor: '#0056b3', // Darker blue for hover effect
+    backgroundColor: '#0056b3', 
   },
   
   
@@ -197,28 +199,7 @@ const styles = {
     gap: '20px',
     flexWrap: 'wrap',
   },
-  textBlock: {
-    flex: 1,
-  },
-  heading: {
-    fontSize: '28px',
-    color: '#333',
-    marginBottom: '20px',
-  },
-  description: {
-    fontSize: '16px',
-    color: '#666',
-    lineHeight: '1.6',
-  },
-  imageBlock: {
-    flex: 1,
-    textAlign: 'center',
-  },
-  image: {
-    maxWidth: '100%',
-    height: 'auto',
-    borderRadius: '10px',
-  },
+
   valuesSection: {
     backgroundColor: '#f9f9f9',
     padding: '40px 20px',

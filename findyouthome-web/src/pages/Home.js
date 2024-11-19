@@ -1,7 +1,8 @@
 import React from 'react';
+import Posts from './Posts';
 
 const Home = () => {
-  return <h2>Home Page</h2>;
+  return<Posts />;
 };
 
 export default Home;
